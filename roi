@@ -5,9 +5,7 @@ $fileName = array_shift($argv);
 foreach ($argv as $arg) {
     switch ($arg) {
         case 'serve':
-            exec('php -S localhost:420 2>&1', $output, $return);
-            echo $output;
-            echo $return;
+            exec('symfony server:start --port=8000 --passthru=front.php');
             break;
         default:
             exit('No valid commands');
