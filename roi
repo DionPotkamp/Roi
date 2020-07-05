@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+$fileName = array_shift($argv);
+
+foreach ($argv as $arg) {
+    switch ($arg) {
+        case 'serve':
+            exec('php -S localhost:420 2>&1', $output, $return);
+            echo $output;
+            echo $return;
+            break;
+        default:
+            exit('No valid commands');
+            break;
+    }
+
+}
