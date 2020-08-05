@@ -9,7 +9,7 @@
             "App/Helpers/helpers.php"
         ],
         "psr-4": {
-            "Roi\\": "App/Roi",
+            "Roi\\": "Src/Roi",
             "App\\": "App/"
         }
     }

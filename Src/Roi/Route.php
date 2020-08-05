@@ -10,10 +10,10 @@ class Route
 
     public function __construct()
     {
+        //TODO: Add option to automatically add the routes
+
         $this->routes = new Routing\RouteCollection();
         $this->namespace = env('controllers.namespace');
-
-//        include __DIR__ . '/../Config/routes.php';
     }
 
     /**
