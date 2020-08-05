@@ -2,10 +2,11 @@
 namespace Roi;
 
 use Symfony\Component\Routing;
+use Symfony\Component\Routing\string;
 
 class Route
 {
-    private $routes;
+    private Routing\RouteCollection $routes;
     private $namespace;
 
     public function __construct()
@@ -17,7 +18,7 @@ class Route
     }
 
     /**
-     * @param \Symfony\Component\Routing\string|string $name of the route
+     * @param string $name of the route
      * @param string $uri of the route
      * @param string|array $controller the route is bind to
      * @param array $defaults If a parameter is missing in the url, use the value assigned in this array
