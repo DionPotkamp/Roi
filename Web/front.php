@@ -27,5 +27,5 @@ $argumentResolver = new ArgumentResolver();
 $framework = new Roi\Framework($matcher, $controllerResolver, $argumentResolver);
 $response = $framework->handle($request);
 
-// Send the answer/response(content) of the request
+// Send the response(content) of the request back to the user
 $response->send();

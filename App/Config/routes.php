@@ -8,5 +8,5 @@ $route->add('hello', '/hello/{name}', 'HomeController::hello', [
 ]);
 
 $route->add('leap_year', '/is_leap_year/{year}', 'Calendar\\LeapYearController::index', [
-    'year' => null
+    'year' => date('Y')
 ]);
