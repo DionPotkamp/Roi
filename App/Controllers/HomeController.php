@@ -9,7 +9,7 @@ class HomeController
 {
     public function index(Request $request)
     {
-        return new Response('Home');
+        return new Response("Home");
     }
 
     public function hello(Request $request, $name)

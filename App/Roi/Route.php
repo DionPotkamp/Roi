@@ -12,6 +12,8 @@ class Route
     {
         $this->routes = new Routing\RouteCollection();
         $this->namespace = env('controllers.namespace');
+
+//        include __DIR__ . '/../Config/routes.php';
     }
 
     /**
