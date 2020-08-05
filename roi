@@ -1,5 +1,9 @@
 #!/usr/bin/env php
 <?php
+require 'vendor/autoload.php';
+
+use Roi\Route;
+
 $fileName = array_shift($argv);
 if(empty($argv)) {
     $argv = ['default'];
@@ -9,6 +13,12 @@ foreach ($argv as $arg) {
     switch ($arg) {
         case 'serve':
             exec('symfony server:start --port=8000 --passthru=front.php');
+            break;
+        case 'routes':
+            $route = new Route();
+            include __DIR__ . '/App/Config/routes.php';
+            $routes = $route->getRoutes();
+            dd($routes);
             break;
         case 'quote':
         default:
