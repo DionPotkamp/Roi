@@ -4,4 +4,7 @@ node_modules/
 public/
 .env
 
+var/cache/templates/*/*.php
+var/log/application.log
+
 .idea
