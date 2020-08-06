@@ -17,15 +17,15 @@ if (!function_exists('env')) {
     /**
      * @param $key
      * @param null $default
-     * @return mixed|null
+     * @return string|null
      */
     function env($key, $default = null){
         $configKey = explode('.', $key);
         $config = include __DIR__.'/../Config/'.$configKey[0].'.php';
         if (array_key_exists($configKey[1], $config)) {
-            return $config[$configKey[1]];
+            return (string)$config[$configKey[1]];
         } else {
-            return $default;
+            return (string)$default;
         }
     }
 }
