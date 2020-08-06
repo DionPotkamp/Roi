@@ -1,41 +1,26 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\HttpKernel;
-use Symfony\Component\Routing;
 use Roi\Route;
-
-// Create the request
-$request = Request::createFromGlobals();
-$requestStack = new RequestStack();
+use Symfony\Component\HttpFoundation\Request;
 
 // Define the routes
 $route = new Route();
 include __DIR__ . '/../App/Config/routes.php';
 $routes = $route->getRoutes();
 
-// Create context from request (url, path, host ec.)
-$context = new Routing\RequestContext();
-// Create a route context matcher
-$matcher = new Routing\Matcher\UrlMatcher($routes, $context);
+// Create the request
+$request = Request::createFromGlobals();
 
-$controllerResolver = new ControllerResolver();
-$argumentResolver = new ArgumentResolver();
+// Create the container and register all the classes
+$container = include __DIR__.'/../Src/Roi/container.php';
+// Set some important required parameters for the container
+$container->setParameter('debug', true);
+$container->setParameter('routes', $routes);
+$container->setParameter('charset', 'UTF-8');
 
-$dispatcher = new EventDispatcher();
-$dispatcher->addSubscriber(new HttpKernel\EventListener\RouterListener($matcher, $requestStack));
-$dispatcher->addSubscriber(new HttpKernel\EventListener\ErrorListener('Roi\ErrorHandler::exception'));
-$dispatcher->addSubscriber(new HttpKernel\EventListener\ResponseListener('UTF-8'));
-$dispatcher->addSubscriber(new Roi\Events\StringResponseListener());
-
-// Initialize new Roi Framework and get the response
-$framework = new Roi\Framework($dispatcher, $controllerResolver, $requestStack, $argumentResolver);
-$response = $framework->handle($request);
+// Get the dependency injected framework and handle the request
+$response = $container->get('framework')->handle($request);
 
 // Send the response(content) of the request back to the user
 $response->send();
