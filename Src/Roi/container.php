@@ -19,7 +19,8 @@ $containerBuilder->register('twig.environment', \Twig\Environment::class)
     ->setArguments([
         new \Twig\Loader\FilesystemLoader(env('templates.dir')),
         [
-            'cache' => env('templates.cache') // Cache directory
+            'cache' => env('templates.cache'), // Cache directory
+            'debug' => env('app.debug')
         ]
     ]);
 

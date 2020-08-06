@@ -1,5 +1,6 @@
 <?php
 return [
     'name' => 'Testing',
-    'locale' => 'nl'
+    'locale' => 'nl',
+    'debug' => true
 ];
