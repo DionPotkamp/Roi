@@ -2,6 +2,8 @@
 
 $route->add('home', '/', 'HomeController::index');
 
+$route->add('twig', '/twig', 'HomeController::twig');
+
 $route->add('hello', '/hello/{name}', 'HomeController::hello', [
     // Set default value
     'name' => 'Roi'
