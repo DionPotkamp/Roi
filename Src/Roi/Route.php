@@ -2,11 +2,10 @@
 namespace Roi;
 
 use Symfony\Component\Routing;
-use Symfony\Component\Routing\string;
 
 class Route
 {
-    private Routing\RouteCollection $routes;
+    private $routes;
     private $namespace;
 
     public function __construct()
