@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var $route Roi\Route
+ */
 
 $route->add('home', '/', 'HomeController::index');
 
