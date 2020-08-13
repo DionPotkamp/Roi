@@ -23,9 +23,9 @@ if (!function_exists('env')) {
         $configKey = explode('.', $key);
         $config = include __DIR__.'/../Config/'.$configKey[0].'.php';
         if (array_key_exists($configKey[1], $config)) {
-            return (string)$config[$configKey[1]];
+            return $config[$configKey[1]];
         } else {
-            return (string)$default;
+            return $default;
         }
     }
 }
