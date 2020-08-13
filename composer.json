@@ -13,6 +13,7 @@
         ],
         "psr-4": {
             "Roi\\": "Src/Roi",
+            "Src\\": "Src/",
             "App\\": "App/"
         }
     }
