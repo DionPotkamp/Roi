@@ -13,6 +13,7 @@ class Extensions extends AbstractExtension
             new TwigFunction('env', 'env')
         ];
     }
+
     public function env($key, $default = null)
     {
         return env($key, $default);
