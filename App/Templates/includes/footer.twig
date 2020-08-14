@@ -1,0 +1,17 @@
+<ul class="nav fixed-bottom d-block p-4 bg-white">
+    <li class="nav-item float-left">
+        <a class="nav-link" href="/">{{ env('app.name') }}</a>
+    </li>
+    <li class="nav-item float-left">
+        <a class="nav-link" href="">About us</a>
+    </li>
+    <li class="nav-item float-left">
+        <a class="nav-link" href="">Legal</a>
+    </li>
+    <li class="nav-item float-left">
+        <a class="nav-link" href="">Socials</a>
+    </li>
+    <li class="nav-item float-right">
+        &copy; Copyright {{ 'now'|date('Y') }} by <a href="">{{ env('app.author') }}</a>
+    </li>
+</ul>
